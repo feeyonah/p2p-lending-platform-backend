@@ -12,5 +12,8 @@ class User(db.Model):
     role = db.COlumn(db.Enum('borrower','lender'), nullable = False)
     credit_score = db.Column(db.integer)
     reputation_score = db.Column(db.float)
-    created_at = db.column(db.datetime , default = datetime.utcnow)
-    updated_at = db.Column(db.datetime, default = datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.column(db.DateTime , default = datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default = datetime.utcnow, onupdate=datetime.utcnow)
+
+    def __repr__(self):
+        return f'<User {self.name}, Role: {self.role}>'
